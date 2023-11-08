@@ -1,3 +1,4 @@
+import type { PopperProps } from "@mui/material";
 import {
   Box,
   Checkbox,
@@ -17,9 +18,13 @@ import languagesList from "./languages";
 
 interface IProps {
   anchorEl: React.ReactNode;
+  placement?: PopperProps["placement"];
 }
 
-const LanguageSelectPopper: FunctionComponent<IProps> = ({ anchorEl }) => {
+const LanguageSelectPopper: FunctionComponent<IProps> = ({
+  anchorEl,
+  placement,
+}) => {
   // ~~~~~ Redux state ~~~~~
 
   // ~~~~~ Hooks ~~~~~
@@ -71,11 +76,13 @@ const LanguageSelectPopper: FunctionComponent<IProps> = ({ anchorEl }) => {
           sx={{ cursor: "pointer" }}
           onClick={() => setIsOpen((prev) => !prev)}
           ref={anchorRootRef}
+          zIndex={1}
+          position="relative"
         >
           {anchorEl}
         </Box>
         <Popper
-          placement={`${isSm ? "auto" : "right-end"}`}
+          placement={`${isSm ? "auto" : placement || "right-end"}`}
           open={isOpen}
           anchorEl={anchorRootRef.current}
           sx={{ zIndex: 1 }}

@@ -92,7 +92,10 @@ const Index: NextPage = () => {
           >
             <SquareIcon direction="right" />
           </MuiLink>
-          <LanguageSelectPopper anchorEl={<DotsIcon />} />
+          <LanguageSelectPopper
+            placement="bottom-start"
+            anchorEl={<DotsIcon />}
+          />
         </Box>
         <Typography position="relative" zIndex={1} maxWidth="70%" color="#fff">
           Welcome to Space FM, where music and live events meet the limitless
