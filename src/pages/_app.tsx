@@ -1,8 +1,11 @@
 import type { EmotionCache } from "@emotion/react";
 import { CacheProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
+import { createTheme } from "@mui/material/styles";
 import { fontFamily } from "fonts";
 import type { AppProps as NextAppProps } from "next/app";
+import { baseTheme } from "theme/base";
 import createEmotionCache from "utils/createEmotionCache";
 
 const clientSideEmotionCache = createEmotionCache();
@@ -15,13 +18,15 @@ const App = (props: AppProps) => {
 
   return (
     <CacheProvider value={emotionCache}>
-      <style jsx global>{`
-        html {
-          font-family: ${fontFamily};
-        }
-      `}</style>
-      <CssBaseline />
-      <Component {...pageProps} />
+      <ThemeProvider theme={createTheme(baseTheme)}>
+        <style jsx global>{`
+          html {
+            font-family: ${fontFamily};
+          }
+        `}</style>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </CacheProvider>
   );
 };
