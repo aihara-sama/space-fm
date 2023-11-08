@@ -26,7 +26,7 @@ const Logo: FunctionComponent<IProps> = ({ size }) => {
     <MuiLink
       component={Link}
       href="/"
-      sx={{ flex: 0 }}
+      sx={{ flex: 0, zIndex: 1, position: "relative" }}
       underline="none"
       color="inherit"
     >
