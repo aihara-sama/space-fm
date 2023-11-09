@@ -1,10 +1,8 @@
 import type { FunctionComponent } from "react";
 
-interface IProps {
-  onClick: () => void;
-}
+interface IProps {}
 
-const PlayIcon: FunctionComponent<IProps> = ({ onClick }) => {
+const PlayIcon: FunctionComponent<IProps> = () => {
   // ~~~~~ Redux state ~~~~~
 
   // ~~~~~ Hooks ~~~~~
@@ -22,7 +20,6 @@ const PlayIcon: FunctionComponent<IProps> = ({ onClick }) => {
   // ~~~~~ JSX ~~~~~
   return (
     <svg
-      onClick={onClick}
       width="48"
       height="48"
       viewBox="0 0 48 48"

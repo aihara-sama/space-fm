@@ -96,7 +96,13 @@ const Header: FunctionComponent<IProps> = () => {
             </MuiLink>
           </Box>
         </Hidden>
-        <Box display="flex" alignItems="center" gap={4}>
+        <Box
+          display="flex"
+          alignItems="center"
+          gap={4}
+          position="relative"
+          zIndex={1}
+        >
           <FacebookIcon />
           <TwitterIcon />
           <MediumIcon />
@@ -127,7 +133,9 @@ const Header: FunctionComponent<IProps> = () => {
           />
         </Box>
       </Box>
-      <Divider sx={{ borderColor: "#fff", mt: 2 }} />
+      <Divider
+        sx={{ borderColor: "#fff", mt: 2, position: "relative", zIndex: 1 }}
+      />
     </Box>
   );
 };
