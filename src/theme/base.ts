@@ -1,6 +1,18 @@
 import type { ThemeOptions } from "@mui/material";
 import { fontFamily } from "fonts";
 
+const breakpoints: ThemeOptions["breakpoints"] = {
+  keys: ["xs", "sm", "md", "lg", "xl"],
+  values: {
+    xs: 0,
+    sm: 600,
+    md: 900,
+    lg: 1350,
+    xl: 1536,
+  },
+  unit: "px",
+};
+
 const components: ThemeOptions["components"] = {
   MuiCssBaseline: {
     styleOverrides: () => ({
@@ -42,4 +54,5 @@ const typography: ThemeOptions["typography"] = {
 export const baseTheme: ThemeOptions = {
   components,
   typography,
+  breakpoints,
 };
