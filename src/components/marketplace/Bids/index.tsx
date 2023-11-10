@@ -22,7 +22,7 @@ const Bids: FunctionComponent<IProps> = () => {
 
   // ~~~~~ JSX ~~~~~
   return (
-    <Container maxWidth="xl" sx={{ mt: 3, position: "relative" }}>
+    <Container maxWidth="xl" sx={{ my: 3, mb: 10, position: "relative" }}>
       <Hidden lgDown>
         <Box
           sx={{
