@@ -1,6 +1,7 @@
 import { Box, Container, Link as MuiLink, Typography } from "@mui/material";
 import Link from "next/link";
 import type { FunctionComponent } from "react";
+import { Fade } from "react-reveal";
 
 interface IProps {}
 
@@ -67,43 +68,47 @@ const GetApp: FunctionComponent<IProps> = () => {
             pt={{ xs: 10, lg: 18 }}
             pb={{ xs: 10, lg: 0 }}
           >
-            <Box maxWidth={500}>
-              <Typography fontSize={40} fontWeight={700} color="#F1F0EE">
-                Listen to your favorite station while investing
-              </Typography>
-              <Typography my={3} fontSize={18} color="#F1F0EE">
-                Have a question that is not answered? You can contact us at{" "}
-                <MuiLink
-                  component={Link}
-                  href="mailto:support@spacefm.co"
-                  underline="always"
-                  color="inherit"
+            <Fade left>
+              <Box maxWidth={500}>
+                <Typography fontSize={40} fontWeight={700} color="#F1F0EE">
+                  Listen to your favorite station while investing
+                </Typography>
+                <Typography my={3} fontSize={18} color="#F1F0EE">
+                  Have a question that is not answered? You can contact us at{" "}
+                  <MuiLink
+                    component={Link}
+                    href="mailto:support@spacefm.co"
+                    underline="always"
+                    color="inherit"
+                  >
+                    support@spacefm.co
+                  </MuiLink>
+                </Typography>
+                <Box
+                  position="relative"
+                  zIndex={1}
+                  display="flex"
+                  alignItems="center"
+                  gap={3}
                 >
-                  support@spacefm.co
-                </MuiLink>
-              </Typography>
-              <Box
-                position="relative"
-                zIndex={1}
-                display="flex"
-                alignItems="center"
-                gap={3}
-              >
-                <Box
-                  component="img"
-                  src="/images/svg/get-it-on-google-play.svg"
-                />
-                <Box
-                  component="img"
-                  src="/images/svg/get-it-on-app-store.svg"
-                />
+                  <Box
+                    component="img"
+                    src="/images/svg/get-it-on-google-play.svg"
+                  />
+                  <Box
+                    component="img"
+                    src="/images/svg/get-it-on-app-store.svg"
+                  />
+                </Box>
               </Box>
-            </Box>
-            <Box
-              component="img"
-              src="/images/svg/now-playing.svg"
-              sx={{ objectPosition: { xs: "0 0 ", lg: "0 62px" } }}
-            />
+            </Fade>
+            <Fade right>
+              <Box
+                component="img"
+                src="/images/svg/now-playing.svg"
+                sx={{ objectPosition: { xs: "0 0 ", lg: "0 62px" } }}
+              />
+            </Fade>
           </Box>
         </Box>
       </Container>

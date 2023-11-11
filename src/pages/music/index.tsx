@@ -6,6 +6,7 @@ import Explore from "components/music/Explore";
 import Features from "components/music/Features";
 import { montserratFont, orbitronFont } from "fonts";
 import { useEffect, useRef, useState, type FunctionComponent } from "react";
+import { Fade } from "react-reveal";
 
 interface IProps {}
 
@@ -76,27 +77,34 @@ const MusicPage: FunctionComponent<IProps> = () => {
       >
         <Box>
           <Box sx={{ opacity: isPlaying ? 0 : 1 }}>
-            <Typography
-              textAlign="center"
-              fontWeight={700}
-              fontFamily={orbitronFont.style.fontFamily}
-              fontSize={{ xs: 32, md: 56, lg: 80 }}
-              lineHeight={1.2}
-              color="#fff"
-            >
-              Experience live Events
-            </Typography>
-            <Typography
-              textAlign="center"
-              fontSize={{ xs: 26, md: 48, lg: 64 }}
-              color="#fff"
-            >
-              Like never before
-            </Typography>
-            <Typography mt={3} fontWeight={300} textAlign="center" color="#fff">
-              Be apart the Space FM Family today and experience live events in a
-              whole new way
-            </Typography>
+            <Fade bottom cascade>
+              <Typography
+                textAlign="center"
+                fontWeight={700}
+                fontFamily={orbitronFont.style.fontFamily}
+                fontSize={{ xs: 32, md: 56, lg: 80 }}
+                lineHeight={1.2}
+                color="#fff"
+              >
+                Experience live Events
+              </Typography>
+              <Typography
+                textAlign="center"
+                fontSize={{ xs: 26, md: 48, lg: 64 }}
+                color="#fff"
+              >
+                Like never before
+              </Typography>
+              <Typography
+                mt={3}
+                fontWeight={300}
+                textAlign="center"
+                color="#fff"
+              >
+                Be apart the Space FM Family today and experience live events in
+                a whole new way
+              </Typography>
+            </Fade>
           </Box>
           <Box
             mt={5}
@@ -138,26 +146,28 @@ const MusicPage: FunctionComponent<IProps> = () => {
           top={{ xs: "15%", sm: "20%" }}
           width="100%"
         >
-          <Box
-            gap={2}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            sx={{ cursor: "pointer" }}
-            onClick={() => {
-              setIsPlaying((prev) => !prev);
-            }}
-          >
-            <PlayIcon />
-            <Typography
-              fontFamily={montserratFont.style.fontFamily}
-              color="#fff"
-              fontSize={20}
-              fontWeight={900}
+          <Fade bottom>
+            <Box
+              gap={2}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{ cursor: "pointer" }}
+              onClick={() => {
+                setIsPlaying((prev) => !prev);
+              }}
             >
-              {isPlaying ? "Stop" : "Watch"} Video
-            </Typography>
-          </Box>
+              <PlayIcon />
+              <Typography
+                fontFamily={montserratFont.style.fontFamily}
+                color="#fff"
+                fontSize={20}
+                fontWeight={900}
+              >
+                {isPlaying ? "Stop" : "Watch"} Video
+              </Typography>
+            </Box>
+          </Fade>
         </Box>
       </Hidden>
       <Explore />

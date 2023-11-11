@@ -5,6 +5,7 @@ import UpcomingEvents from "components/events/UpcomingEvents";
 import ArrowDown from "components/icons/ArrowDown";
 import { orbitronFont } from "fonts";
 import type { FunctionComponent } from "react";
+import { Fade } from "react-reveal";
 
 interface IProps {}
 
@@ -37,40 +38,42 @@ const EventsPage: FunctionComponent<IProps> = () => {
           position: "relative",
         }}
       >
-        <Typography
-          textAlign="center"
-          fontWeight={700}
-          fontFamily={orbitronFont.style.fontFamily}
-          fontSize={{ xs: 32, md: 56, lg: 80 }}
-          color="#fff"
-        >
-          Experience live Events
-        </Typography>
-        <Box
-          sx={{
-            mt: 17,
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Button
-            variant="outlined"
-            sx={{
-              color: "#fff",
-              borderRadius: "50px",
-              borderColor: "#fff !important",
-              textTransform: "none",
-              py: "10px",
-              px: 4,
-              fontsize: 18,
-              whiteSpace: "nowrap",
-            }}
-            component={Link}
-            href="/#"
+        <Fade bottom cascade>
+          <Typography
+            textAlign="center"
+            fontWeight={700}
+            fontFamily={orbitronFont.style.fontFamily}
+            fontSize={{ xs: 32, md: 56, lg: 80 }}
+            color="#fff"
           >
-            Learn More
-          </Button>
-        </Box>
+            Experience live Events
+          </Typography>
+          <Box
+            sx={{
+              mt: 17,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Button
+              variant="outlined"
+              sx={{
+                color: "#fff",
+                borderRadius: "50px",
+                borderColor: "#fff !important",
+                textTransform: "none",
+                py: "10px",
+                px: 4,
+                fontsize: 18,
+                whiteSpace: "nowrap",
+              }}
+              component={Link}
+              href="/#"
+            >
+              Learn More
+            </Button>
+          </Box>
+        </Fade>
         <Box
           position="absolute"
           bottom={-50}
@@ -81,49 +84,51 @@ const EventsPage: FunctionComponent<IProps> = () => {
             px: 2,
           }}
         >
-          <Box
-            sx={{
-              bgcolor: "#242565",
-              borderRadius: "20px",
-              px: 6,
-              py: 4,
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              gap: 3,
-            }}
-          >
-            <TextField
-              fullWidth
+          <Fade bottom>
+            <Box
               sx={{
-                input: { color: "#fff" },
-                label: { color: "#fff !important" },
+                bgcolor: "#242565",
+                borderRadius: "20px",
+                px: 6,
+                py: 4,
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+                gap: 3,
               }}
-              variant="standard"
-              label="Search Event"
-              value="Los Angeles,CA"
-            />
-            <TextField
-              fullWidth
-              sx={{
-                input: { color: "#fff" },
-                label: { color: "#fff !important" },
-              }}
-              variant="standard"
-              label="Place"
-              value="Cryto.com  Arena"
-            />
-            <TextField
-              fullWidth
-              sx={{
-                input: { color: "#fff" },
-                label: { color: "#fff !important" },
-              }}
-              variant="standard"
-              InputProps={{ endAdornment: <ArrowDown /> }}
-              label="Date / Time"
-              value="Saturday @ 3:00 PM"
-            />
-          </Box>
+            >
+              <TextField
+                fullWidth
+                sx={{
+                  input: { color: "#fff" },
+                  label: { color: "#fff !important" },
+                }}
+                variant="standard"
+                label="Search Event"
+                value="Los Angeles,CA"
+              />
+              <TextField
+                fullWidth
+                sx={{
+                  input: { color: "#fff" },
+                  label: { color: "#fff !important" },
+                }}
+                variant="standard"
+                label="Place"
+                value="Cryto.com  Arena"
+              />
+              <TextField
+                fullWidth
+                sx={{
+                  input: { color: "#fff" },
+                  label: { color: "#fff !important" },
+                }}
+                variant="standard"
+                InputProps={{ endAdornment: <ArrowDown /> }}
+                label="Date / Time"
+                value="Saturday @ 3:00 PM"
+              />
+            </Box>
+          </Fade>
         </Box>
       </Box>
       <Box component="img" sx={{ width: "100%" }} src="/images/svg/map.svg" />

@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { montserratFont } from "fonts";
 import type { FunctionComponent } from "react";
+import { Fade } from "react-reveal";
 
 interface IProps {}
 
@@ -44,19 +45,24 @@ const Explore: FunctionComponent<IProps> = () => {
           },
         }}
       >
-        <Box
-          component="img"
-          src="/images/svg/radio-station-types/college-alternative.svg"
-        />
-        <Box component="img" src="/images/svg/radio-station-types/dance.svg" />
-        <Box
-          component="img"
-          src="/images/svg/radio-station-types/hip-hop-rap.svg"
-        />
-        <Box
-          component="img"
-          src="/images/svg/radio-station-types/jazz-contemoporary.svg"
-        />
+        <Fade left cascade>
+          <Box
+            component="img"
+            src="/images/svg/radio-station-types/college-alternative.svg"
+          />
+          <Box
+            component="img"
+            src="/images/svg/radio-station-types/dance.svg"
+          />
+          <Box
+            component="img"
+            src="/images/svg/radio-station-types/hip-hop-rap.svg"
+          />
+          <Box
+            component="img"
+            src="/images/svg/radio-station-types/jazz-contemoporary.svg"
+          />
+        </Fade>
       </Box>
     </Box>
   );

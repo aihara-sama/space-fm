@@ -36,7 +36,7 @@ const Header: FunctionComponent<IProps> = () => {
           <Box display="flex" gap={4}>
             <MuiLink
               component={Link}
-              href="/misuc"
+              href="/music"
               sx={{
                 zIndex: 1,
                 position: "relative",

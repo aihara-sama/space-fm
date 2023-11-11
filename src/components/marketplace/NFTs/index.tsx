@@ -11,6 +11,7 @@ import {
 import EtheriumIcon from "components/icons/EtheriumIcon";
 import FiltersIcon from "components/icons/FiltersIcon";
 import type { FunctionComponent } from "react";
+import { Fade } from "react-reveal";
 import { cards } from "./cards";
 
 interface IProps {}
@@ -70,296 +71,304 @@ const NFTs: FunctionComponent<IProps> = () => {
             zIndex: 0,
           }}
         ></Box>
-        <Box
-          display="flex"
-          alignItems="center"
-          overflow="auto"
-          sx={{ "::-webkit-scrollbar": { display: "none" } }}
-        >
-          <Typography
-            whiteSpace="nowrap"
-            mr={3}
-            fontWeight={500}
-            fontSize={14}
-            color="#fff"
+        <Fade left>
+          <Box
+            display="flex"
+            alignItems="center"
+            overflow="auto"
+            sx={{ "::-webkit-scrollbar": { display: "none" } }}
           >
-            All Categories
-          </Typography>
-          {categories.map((cat, idx) => (
+            <Typography
+              whiteSpace="nowrap"
+              mr={3}
+              fontWeight={500}
+              fontSize={14}
+              color="#fff"
+            >
+              All Categories
+            </Typography>
+            {categories.map((cat, idx) => (
+              <Box
+                whiteSpace="nowrap"
+                mr={2}
+                key={idx}
+                borderRadius="100px"
+                sx={{
+                  bgcolor: "#dcdcdc38",
+                  color: "#fff",
+                  py: "10px",
+                  px: "20px",
+                }}
+              >
+                {cat}
+              </Box>
+            ))}
             <Box
               whiteSpace="nowrap"
               mr={2}
-              key={idx}
               borderRadius="100px"
               sx={{
                 bgcolor: "#dcdcdc38",
                 color: "#fff",
-                py: "10px",
+                py: "15px",
                 px: "20px",
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
               }}
             >
-              {cat}
+              <FiltersIcon />
+              All Filters
             </Box>
-          ))}
-          <Box
-            whiteSpace="nowrap"
-            mr={2}
-            borderRadius="100px"
-            sx={{
-              bgcolor: "#dcdcdc38",
-              color: "#fff",
-              py: "15px",
-              px: "20px",
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-            }}
-          >
-            <FiltersIcon />
-            All Filters
           </Box>
-        </Box>
+        </Fade>
         <Box px={3} mt={3}>
           <Grid container spacing={3}>
             {cards.map((card, idx) => (
               <Grid key={idx} item xs={12} sm={6} lg={3}>
-                <Box bgcolor="#fff" borderRadius="14px" p="10px">
-                  <Box position="relative">
-                    <Box
-                      component="img"
-                      src={card.image}
-                      sx={{ width: "100%" }}
-                    />
-                    <Box
-                      position="absolute"
-                      sx={{ bottom: "-15px", left: "13px" }}
-                    >
-                      <AvatarGroup>
-                        {card.avatars.map((avatar, i) => (
-                          <Avatar key={i} alt="Remy Sharp" src={avatar} />
-                        ))}
-                      </AvatarGroup>
+                <Fade bottom>
+                  <Box bgcolor="#fff" borderRadius="14px" p="10px">
+                    <Box position="relative">
+                      <Box
+                        component="img"
+                        src={card.image}
+                        sx={{ width: "100%" }}
+                      />
+                      <Box
+                        position="absolute"
+                        sx={{ bottom: "-15px", left: "13px" }}
+                      >
+                        <AvatarGroup>
+                          {card.avatars.map((avatar, i) => (
+                            <Avatar key={i} alt="Remy Sharp" src={avatar} />
+                          ))}
+                        </AvatarGroup>
+                      </Box>
                     </Box>
-                  </Box>
-                  <Box px={2}>
-                    <Typography
-                      fontWeight={800}
-                      fontSize={20}
-                      color="#000"
-                      mt={2}
-                    >
-                      {card.title}
-                    </Typography>
-                    <Box
-                      mt={1}
-                      mb={2}
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                    >
-                      <Box display="flex" alignItems="center" gap={1}>
-                        <EtheriumIcon color="green" size="small" />
+                    <Box px={2}>
+                      <Typography
+                        fontWeight={800}
+                        fontSize={20}
+                        color="#000"
+                        mt={2}
+                      >
+                        {card.title}
+                      </Typography>
+                      <Box
+                        mt={1}
+                        mb={2}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
+                      >
+                        <Box display="flex" alignItems="center" gap={1}>
+                          <EtheriumIcon color="green" size="small" />
+                          <Typography
+                            fontWeight={800}
+                            fontSize={11}
+                            color="#00AC4F"
+                          >
+                            {card.price}
+                          </Typography>
+                        </Box>
                         <Typography
-                          fontWeight={800}
-                          fontSize={11}
-                          color="#00AC4F"
+                          color="#838383"
+                          fontSize={13}
+                          fontWeight={500}
                         >
-                          {card.price}
+                          {card.amount} of 321
                         </Typography>
                       </Box>
-                      <Typography
-                        color="#838383"
-                        fontSize={13}
-                        fontWeight={500}
-                      >
-                        {card.amount} of 321
-                      </Typography>
-                    </Box>
-                    <Divider sx={{ borderColor: "#F4F4F4", mb: 2 }} />
-                    <Box
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                    >
+                      <Divider sx={{ borderColor: "#F4F4F4", mb: 2 }} />
                       <Box
-                        bgcolor="#F5F5F5"
-                        borderRadius="110px"
-                        px={1.5}
-                        py={0.5}
-                        color="#5539A8"
-                        fontSize={11}
-                        fontWeight={500}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
                       >
-                        {card.timeLeft}
+                        <Box
+                          bgcolor="#F5F5F5"
+                          borderRadius="110px"
+                          px={1.5}
+                          py={0.5}
+                          color="#5539A8"
+                          fontSize={11}
+                          fontWeight={500}
+                        >
+                          {card.timeLeft}
+                        </Box>
+                        <Typography fontWeight={600} color="#4F33A3">
+                          Place a bid
+                        </Typography>
                       </Box>
-                      <Typography fontWeight={600} color="#4F33A3">
-                        Place a bid
-                      </Typography>
                     </Box>
                   </Box>
-                </Box>
+                </Fade>
               </Grid>
             ))}
           </Grid>
           <Grid sx={{ mt: 3 }} container spacing={3}>
             {cards.map((card, idx) => (
               <Grid key={idx} item xs={12} sm={6} lg={3}>
-                <Box bgcolor="#fff" borderRadius="14px" p="10px">
-                  <Box position="relative">
-                    <Box
-                      component="img"
-                      src={card.image}
-                      sx={{ width: "100%" }}
-                    />
-                    <Box
-                      position="absolute"
-                      sx={{ bottom: "-15px", left: "13px" }}
-                    >
-                      <AvatarGroup>
-                        {card.avatars.map((avatar, i) => (
-                          <Avatar key={i} alt="Remy Sharp" src={avatar} />
-                        ))}
-                      </AvatarGroup>
+                <Fade bottom>
+                  <Box bgcolor="#fff" borderRadius="14px" p="10px">
+                    <Box position="relative">
+                      <Box
+                        component="img"
+                        src={card.image}
+                        sx={{ width: "100%" }}
+                      />
+                      <Box
+                        position="absolute"
+                        sx={{ bottom: "-15px", left: "13px" }}
+                      >
+                        <AvatarGroup>
+                          {card.avatars.map((avatar, i) => (
+                            <Avatar key={i} alt="Remy Sharp" src={avatar} />
+                          ))}
+                        </AvatarGroup>
+                      </Box>
                     </Box>
-                  </Box>
-                  <Box px={2}>
-                    <Typography
-                      fontWeight={800}
-                      fontSize={20}
-                      color="#000"
-                      mt={2}
-                    >
-                      {card.title}
-                    </Typography>
-                    <Box
-                      mt={1}
-                      mb={2}
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                    >
-                      <Box display="flex" alignItems="center" gap={1}>
-                        <EtheriumIcon color="green" size="small" />
+                    <Box px={2}>
+                      <Typography
+                        fontWeight={800}
+                        fontSize={20}
+                        color="#000"
+                        mt={2}
+                      >
+                        {card.title}
+                      </Typography>
+                      <Box
+                        mt={1}
+                        mb={2}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
+                      >
+                        <Box display="flex" alignItems="center" gap={1}>
+                          <EtheriumIcon color="green" size="small" />
+                          <Typography
+                            fontWeight={800}
+                            fontSize={11}
+                            color="#00AC4F"
+                          >
+                            {card.price}
+                          </Typography>
+                        </Box>
                         <Typography
-                          fontWeight={800}
-                          fontSize={11}
-                          color="#00AC4F"
+                          color="#838383"
+                          fontSize={13}
+                          fontWeight={500}
                         >
-                          {card.price}
+                          {card.amount} of 321
                         </Typography>
                       </Box>
-                      <Typography
-                        color="#838383"
-                        fontSize={13}
-                        fontWeight={500}
-                      >
-                        {card.amount} of 321
-                      </Typography>
-                    </Box>
-                    <Divider sx={{ borderColor: "#F4F4F4", mb: 2 }} />
-                    <Box
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                    >
+                      <Divider sx={{ borderColor: "#F4F4F4", mb: 2 }} />
                       <Box
-                        bgcolor="#F5F5F5"
-                        borderRadius="110px"
-                        px={1.5}
-                        py={0.5}
-                        color="#5539A8"
-                        fontSize={11}
-                        fontWeight={500}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
                       >
-                        {card.timeLeft}
+                        <Box
+                          bgcolor="#F5F5F5"
+                          borderRadius="110px"
+                          px={1.5}
+                          py={0.5}
+                          color="#5539A8"
+                          fontSize={11}
+                          fontWeight={500}
+                        >
+                          {card.timeLeft}
+                        </Box>
+                        <Typography fontWeight={600} color="#4F33A3">
+                          Place a bid
+                        </Typography>
                       </Box>
-                      <Typography fontWeight={600} color="#4F33A3">
-                        Place a bid
-                      </Typography>
                     </Box>
                   </Box>
-                </Box>
+                </Fade>
               </Grid>
             ))}
           </Grid>
           <Grid sx={{ mt: 3 }} container spacing={3}>
             {cards.map((card, idx) => (
               <Grid key={idx} item xs={12} sm={6} lg={3}>
-                <Box bgcolor="#fff" borderRadius="14px" p="10px">
-                  <Box position="relative">
-                    <Box
-                      component="img"
-                      src={card.image}
-                      sx={{ width: "100%" }}
-                    />
-                    <Box
-                      position="absolute"
-                      sx={{ bottom: "-15px", left: "13px" }}
-                    >
-                      <AvatarGroup>
-                        {card.avatars.map((avatar, i) => (
-                          <Avatar key={i} alt="Remy Sharp" src={avatar} />
-                        ))}
-                      </AvatarGroup>
+                <Fade bottom>
+                  <Box bgcolor="#fff" borderRadius="14px" p="10px">
+                    <Box position="relative">
+                      <Box
+                        component="img"
+                        src={card.image}
+                        sx={{ width: "100%" }}
+                      />
+                      <Box
+                        position="absolute"
+                        sx={{ bottom: "-15px", left: "13px" }}
+                      >
+                        <AvatarGroup>
+                          {card.avatars.map((avatar, i) => (
+                            <Avatar key={i} alt="Remy Sharp" src={avatar} />
+                          ))}
+                        </AvatarGroup>
+                      </Box>
                     </Box>
-                  </Box>
-                  <Box px={2}>
-                    <Typography
-                      fontWeight={800}
-                      fontSize={20}
-                      color="#000"
-                      mt={2}
-                    >
-                      {card.title}
-                    </Typography>
-                    <Box
-                      mt={1}
-                      mb={2}
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                    >
-                      <Box display="flex" alignItems="center" gap={1}>
-                        <EtheriumIcon color="green" size="small" />
+                    <Box px={2}>
+                      <Typography
+                        fontWeight={800}
+                        fontSize={20}
+                        color="#000"
+                        mt={2}
+                      >
+                        {card.title}
+                      </Typography>
+                      <Box
+                        mt={1}
+                        mb={2}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
+                      >
+                        <Box display="flex" alignItems="center" gap={1}>
+                          <EtheriumIcon color="green" size="small" />
+                          <Typography
+                            fontWeight={800}
+                            fontSize={11}
+                            color="#00AC4F"
+                          >
+                            {card.price}
+                          </Typography>
+                        </Box>
                         <Typography
-                          fontWeight={800}
-                          fontSize={11}
-                          color="#00AC4F"
+                          color="#838383"
+                          fontSize={13}
+                          fontWeight={500}
                         >
-                          {card.price}
+                          {card.amount} of 321
                         </Typography>
                       </Box>
-                      <Typography
-                        color="#838383"
-                        fontSize={13}
-                        fontWeight={500}
-                      >
-                        {card.amount} of 321
-                      </Typography>
-                    </Box>
-                    <Divider sx={{ borderColor: "#F4F4F4", mb: 2 }} />
-                    <Box
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                    >
+                      <Divider sx={{ borderColor: "#F4F4F4", mb: 2 }} />
                       <Box
-                        bgcolor="#F5F5F5"
-                        borderRadius="110px"
-                        px={1.5}
-                        py={0.5}
-                        color="#5539A8"
-                        fontSize={11}
-                        fontWeight={500}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
                       >
-                        {card.timeLeft}
+                        <Box
+                          bgcolor="#F5F5F5"
+                          borderRadius="110px"
+                          px={1.5}
+                          py={0.5}
+                          color="#5539A8"
+                          fontSize={11}
+                          fontWeight={500}
+                        >
+                          {card.timeLeft}
+                        </Box>
+                        <Typography fontWeight={600} color="#4F33A3">
+                          Place a bid
+                        </Typography>
                       </Box>
-                      <Typography fontWeight={600} color="#4F33A3">
-                        Place a bid
-                      </Typography>
                     </Box>
                   </Box>
-                </Box>
+                </Fade>
               </Grid>
             ))}
           </Grid>
@@ -370,111 +379,115 @@ const NFTs: FunctionComponent<IProps> = () => {
           >
             {cards.map((card, idx) => (
               <Grid key={idx} item xs={12} sm={6} lg={3}>
-                <Box bgcolor="#fff" borderRadius="14px" p="10px">
-                  <Box position="relative">
-                    <Box
-                      component="img"
-                      src={card.image}
-                      sx={{ width: "100%" }}
-                    />
-                    <Box
-                      position="absolute"
-                      sx={{ bottom: "-15px", left: "13px" }}
-                    >
-                      <AvatarGroup>
-                        {card.avatars.map((avatar, i) => (
-                          <Avatar key={i} alt="Remy Sharp" src={avatar} />
-                        ))}
-                      </AvatarGroup>
+                <Fade bottom>
+                  <Box bgcolor="#fff" borderRadius="14px" p="10px">
+                    <Box position="relative">
+                      <Box
+                        component="img"
+                        src={card.image}
+                        sx={{ width: "100%" }}
+                      />
+                      <Box
+                        position="absolute"
+                        sx={{ bottom: "-15px", left: "13px" }}
+                      >
+                        <AvatarGroup>
+                          {card.avatars.map((avatar, i) => (
+                            <Avatar key={i} alt="Remy Sharp" src={avatar} />
+                          ))}
+                        </AvatarGroup>
+                      </Box>
                     </Box>
-                  </Box>
-                  <Box px={2}>
-                    <Typography
-                      fontWeight={800}
-                      fontSize={20}
-                      color="#000"
-                      mt={2}
-                    >
-                      {card.title}
-                    </Typography>
-                    <Box
-                      mt={1}
-                      mb={2}
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                    >
-                      <Box display="flex" alignItems="center" gap={1}>
-                        <EtheriumIcon color="green" size="small" />
+                    <Box px={2}>
+                      <Typography
+                        fontWeight={800}
+                        fontSize={20}
+                        color="#000"
+                        mt={2}
+                      >
+                        {card.title}
+                      </Typography>
+                      <Box
+                        mt={1}
+                        mb={2}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
+                      >
+                        <Box display="flex" alignItems="center" gap={1}>
+                          <EtheriumIcon color="green" size="small" />
+                          <Typography
+                            fontWeight={800}
+                            fontSize={11}
+                            color="#00AC4F"
+                          >
+                            {card.price}
+                          </Typography>
+                        </Box>
                         <Typography
-                          fontWeight={800}
-                          fontSize={11}
-                          color="#00AC4F"
+                          color="#838383"
+                          fontSize={13}
+                          fontWeight={500}
                         >
-                          {card.price}
+                          {card.amount} of 321
                         </Typography>
                       </Box>
-                      <Typography
-                        color="#838383"
-                        fontSize={13}
-                        fontWeight={500}
-                      >
-                        {card.amount} of 321
-                      </Typography>
-                    </Box>
-                    <Divider sx={{ borderColor: "#F4F4F4", mb: 2 }} />
-                    <Box
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                    >
+                      <Divider sx={{ borderColor: "#F4F4F4", mb: 2 }} />
                       <Box
-                        bgcolor="#F5F5F5"
-                        borderRadius="110px"
-                        px={1.5}
-                        py={0.5}
-                        color="#5539A8"
-                        fontSize={11}
-                        fontWeight={500}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="space-between"
                       >
-                        {card.timeLeft}
+                        <Box
+                          bgcolor="#F5F5F5"
+                          borderRadius="110px"
+                          px={1.5}
+                          py={0.5}
+                          color="#5539A8"
+                          fontSize={11}
+                          fontWeight={500}
+                        >
+                          {card.timeLeft}
+                        </Box>
+                        <Typography fontWeight={600} color="#4F33A3">
+                          Place a bid
+                        </Typography>
                       </Box>
-                      <Typography fontWeight={600} color="#4F33A3">
-                        Place a bid
-                      </Typography>
                     </Box>
                   </Box>
-                </Box>
+                </Fade>
               </Grid>
             ))}
           </Grid>
-          <Box
-            sx={{
-              mt: 10,
-              display: "flex",
-              justifyContent: "center",
-              mb: 5,
-            }}
-          >
-            <Button
-              variant="contained"
+          <Fade left>
+            <Box
               sx={{
-                color: "#4F33A3",
-                borderRadius: "50px",
-                border: "none !important",
-                textTransform: "none",
-                py: "10px",
-                px: 4,
-                fontsize: 18,
-                whiteSpace: "nowrap",
-                fontWeight: 800,
-                borderWidth: 1.5,
-                background: "#fff !important",
+                mt: 10,
+                display: "flex",
+                justifyContent: "center",
+                mb: 5,
               }}
             >
-              More NFTs
-            </Button>
-          </Box>
+              <Button
+                variant="contained"
+                sx={{
+                  color: "#4F33A3",
+                  borderRadius: "50px",
+                  border: "none !important",
+                  textTransform: "none",
+                  py: "10px",
+                  px: 4,
+                  fontsize: 18,
+                  whiteSpace: "nowrap",
+                  fontWeight: 800,
+                  borderWidth: 1.5,
+                  background: "#fff !important",
+                }}
+              >
+                More NFTs
+              </Button>
+            </Box>
+          </Fade>
         </Box>
       </Container>
     </Box>

@@ -14,6 +14,7 @@ import TwitterIcon from "components/icons/TwitterIcon";
 import YoutubeIcon from "components/icons/YoutubeIcon";
 import Link from "next/link";
 import type { FunctionComponent } from "react";
+import { Fade } from "react-reveal";
 
 interface IProps {}
 
@@ -37,59 +38,65 @@ const Footer: FunctionComponent<IProps> = () => {
     <Box bgcolor="#000000">
       <Container sx={{ pb: 5, pt: 12 }} component="footer" maxWidth="xl">
         <Box px={{ xs: 0, md: 5 }}>
-          <Box
-            bgcolor="#17181A"
-            py={4}
-            px={6}
-            borderRadius="24px"
-            display="flex"
-            alignItems="center"
-            gap={5}
-            justifyContent="space-between"
-            flexDirection={{ xs: "column", md: "row" }}
-          >
-            <Box display="flex" gap={2} alignItems="center">
-              <Box
-                width={50}
-                height={50}
-                borderRadius="8px"
-                sx={{
-                  background: "linear-gradient(#35383A, #232529)",
-                  border: "1px solid #ffffff26",
-                }}
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-              >
-                <DiscordIcon size="medium" />
-              </Box>
-              <Box flex={1}>
-                <Typography fontSize={20} color="#fff">
-                  Join our awesome community
-                </Typography>
-                <Typography fontSize={14} color="#D8D5D1">
-                  Share work, seek support, vote on components, stay updated and
-                  network
-                </Typography>
-              </Box>
-            </Box>
+          <Fade left>
+            {" "}
             <Box
-              py={2}
-              px="20px"
-              borderRadius="40px"
-              component="a"
-              bgcolor="#fff"
-              color="#17181A"
-              href="#"
-              fontWeight={600}
-              sx={{ textDecoration: "none" }}
+              bgcolor="#17181A"
+              py={4}
+              px={6}
+              borderRadius="24px"
+              display="flex"
+              alignItems="center"
+              gap={5}
+              justifyContent="space-between"
+              flexDirection={{ xs: "column", md: "row" }}
             >
-              Join Discord
+              <Box display="flex" gap={2} alignItems="center">
+                <Box
+                  width={50}
+                  height={50}
+                  borderRadius="8px"
+                  sx={{
+                    background: "linear-gradient(#35383A, #232529)",
+                    border: "1px solid #ffffff26",
+                  }}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <DiscordIcon size="medium" />
+                </Box>
+                <Box flex={1}>
+                  <Typography fontSize={20} color="#fff">
+                    Join our awesome community
+                  </Typography>
+                  <Typography fontSize={14} color="#D8D5D1">
+                    Share work, seek support, vote on components, stay updated
+                    and network
+                  </Typography>
+                </Box>
+              </Box>
+              <Box
+                py={2}
+                px="20px"
+                borderRadius="40px"
+                component="a"
+                bgcolor="#fff"
+                color="#17181A"
+                href="#"
+                fontWeight={600}
+                sx={{ textDecoration: "none" }}
+              >
+                Join Discord
+              </Box>
             </Box>
-          </Box>
-          <Box my={10} display="flex" justifyContent="center">
-            <Logo size="large" />
-          </Box>
+          </Fade>
+          <Fade left>
+            {" "}
+            <Box my={10} display="flex" justifyContent="center">
+              <Logo size="large" />
+            </Box>
+          </Fade>
 
           <Box
             justifyContent="space-between"

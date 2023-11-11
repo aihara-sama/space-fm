@@ -25,7 +25,7 @@ const HomePage: NextPage = () => {
 
   // ~~~~~ JSX ~~~~~
   return (
-    <Box bgcolor="#0A0A0A">
+    <Box bgcolor="#0A0A0A" overflow="hidden">
       <Box
         sx={{
           top: -220,

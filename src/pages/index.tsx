@@ -6,6 +6,7 @@ import SquareIcon from "components/icons/SquareIcon";
 import { orbitronFont } from "fonts";
 import type { NextPage } from "next";
 import Link from "next/link";
+import { Fade } from "react-reveal";
 
 const Index: NextPage = () => {
   // ~~~~~ Hooks ~~~~~
@@ -37,73 +38,83 @@ const Index: NextPage = () => {
         }}
       ></Box>
       <Logo size="small" />
-      <Typography
-        mt={14}
-        fontWeight={700}
-        fontSize={69}
-        fontFamily={orbitronFont.style.fontFamily}
-        color="#fff"
-        textAlign="center"
-        maxWidth={836}
-      >
-        <Box component="span" color="#979797">
-          Welcome,
-        </Box>{" "}
-        to the future
-      </Typography>
-
-      <Box
-        mt={14}
-        borderRadius="31.44px"
-        p={5}
-        maxWidth={690}
-        sx={{
-          backgroundColor: "#1C1F37",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <Box
-          sx={{
-            top: -20,
-            right: 0,
-            width: "200px",
-            height: "200px",
-            position: "absolute",
-            background: "linear-gradient(#00C2FF, #AE29FF)",
-            borderRadius: "50%",
-            filter: "blur(20px)",
-          }}
-        ></Box>
-        <Box
-          position="absolute"
-          top={30}
-          right={30}
-          zIndex={1}
-          display="flex"
-          alignItems="center"
-          gap={2.5}
+      <Fade left>
+        <Typography
+          mt={14}
+          fontWeight={700}
+          fontSize={69}
+          fontFamily={orbitronFont.style.fontFamily}
+          color="#fff"
+          textAlign="center"
+          maxWidth={836}
         >
-          <MuiLink
-            component={Link}
-            href="/location"
-            underline="none"
-            color="inherit"
-          >
-            <SquareIcon direction="right" />
-          </MuiLink>
-          <LanguageSelectPopper
-            placement="bottom-start"
-            anchorEl={<DotsIcon />}
-          />
-        </Box>
-        <Typography position="relative" zIndex={1} maxWidth="70%" color="#fff">
-          Welcome to Space FM, where music and live events meet the limitless
-          potential of blockchain technology. We are a forward-thinking platform
-          committed to reshaping the way music is created, distributed, and
-          experienced, all while pioneering a new era of entertainment.
+          <Box component="span" color="#979797">
+            Welcome,
+          </Box>{" "}
+          to the future
         </Typography>
-      </Box>
+      </Fade>
+
+      <Fade left>
+        <Box
+          mt={14}
+          borderRadius="31.44px"
+          p={5}
+          maxWidth={690}
+          sx={{
+            backgroundColor: "#1C1F37",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <Box
+            sx={{
+              top: -20,
+              right: 0,
+              width: "200px",
+              height: "200px",
+              position: "absolute",
+              background: "linear-gradient(#00C2FF, #AE29FF)",
+              borderRadius: "50%",
+              filter: "blur(20px)",
+            }}
+          ></Box>
+          <Box
+            position="absolute"
+            top={30}
+            right={30}
+            zIndex={1}
+            display="flex"
+            alignItems="center"
+            gap={2.5}
+          >
+            <MuiLink
+              component={Link}
+              href="/location"
+              underline="none"
+              color="inherit"
+            >
+              <SquareIcon direction="right" />
+            </MuiLink>
+            <LanguageSelectPopper
+              placement="bottom-start"
+              anchorEl={<DotsIcon />}
+            />
+          </Box>
+          <Typography
+            position="relative"
+            zIndex={1}
+            maxWidth="70%"
+            color="#fff"
+          >
+            Welcome to Space FM, where music and live events meet the limitless
+            potential of blockchain technology. We are a forward-thinking
+            platform committed to reshaping the way music is created,
+            distributed, and experienced, all while pioneering a new era of
+            entertainment.
+          </Typography>
+        </Box>
+      </Fade>
     </Box>
   );
 };
